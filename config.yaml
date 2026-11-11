@@ -1,0 +1,127 @@
+
+# JobHunt configuration
+# Everything tunable lives here — no editing Python.
+
+filters:
+  # Title regexes, matched case-insensitively against job title only.
+  # A title must match at least one include AND zero excludes.
+
+  include_titles:
+    # Software engineering
+    - '\bsoftware engineer\b'
+    - '\bsoftware development engineer\b'
+    - '\bsde\b'
+    - '\bsde\s*-?\s*(i|ii|iii|1|2|3)\b'
+    - '\bassociate software engineer\b'
+    - '\bgraduate software engineer\b'
+    - '\bjunior software engineer\b'
+    - '\bapplication engineer\b'
+
+    # Backend development
+    - '\bbackend engineer\b'
+    - '\bback-end engineer\b'
+    - '\bnode\.?js engineer\b'
+    - '\bapi engineer\b'
+    - '\bserver-side engineer\b'
+
+    # Full-stack development
+    - '\bfull[- ]stack engineer\b'
+    - '\bfull[- ]stack developer\b'
+    - '\bsoftware developer\b'
+    - '\bweb application developer\b'
+
+    # Software / Development internships
+    - '\bsoftware engineer intern\b'
+    - '\bsoftware engineering intern\b'
+    - '\bsoftware developer intern\b'
+    - '\bdeveloper intern\b'
+    - '\bsoftware intern\b'
+    - '\bengineering intern\b'
+    - '\btechnology intern\b'
+    - '\btechnical intern\b'
+    - '\bbackend intern\b'
+    - '\bback-end intern\b'
+    - '\bfrontend intern\b'
+    - '\bfront-end intern\b'
+    - '\bfull[- ]stack intern\b'
+    - '\bweb developer intern\b'
+    - '\bnode\.?js intern\b'
+    - '\breact\.?js intern\b'
+    - '\bjava developer intern\b'
+
+    # DevOps / Cloud internships
+    - '\bdevops intern\b'
+    - '\bcloud engineer intern\b'
+    - '\bcloud computing intern\b'
+    - '\binfrastructure intern\b'
+    - '\bplatform engineer intern\b'
+    - '\bsre intern\b'
+
+    # Trainee roles
+    - '\bdeveloper trainee\b'
+    - '\bsoftware engineer trainee\b'
+    - '\bgraduate trainee engineer\b'
+
+    # DevOps / Cloud / Infrastructure full-time
+    - '\bdevops engineer\b'
+    - '\bcloud engineer\b'
+    - '\binfrastructure engineer\b'
+    - '\bplatform engineer\b'
+    - '\bsite reliability engineer\b'
+    - '\bsre\b'
+    - '\bbuild and release engineer\b'
+    - '\bcloud operations engineer\b'
+
+    # Systems engineering
+    - '\bsystems engineer\b'
+    - '\bdistributed systems engineer\b'
+
+  # Exclude unsuitable roles
+  exclude_titles:
+    - '\b(staff|principal|distinguished|fellow|architect)\b'
+    - '\bsenior\b'
+    - '\b(lead|director|vp|vice president|head of|chief|cto)\b'
+    - '\b(manager|management)\b'
+    - '\b(sales|account executive|marketing|recruiter|support|customer success)\b'
+    - '\b(frontend|front-end|ios|android|mobile|game designer)\b'
+    - '\b(data scientist|machine learning scientist|research scientist)\b'
+
+  # Target locations
+  locations:
+    - hyderabad
+    - pune
+    - gurgaon
+    - gurugram
+    - bangalore
+    - bengaluru
+
+  # Allow remote jobs
+  allow_remote: true
+
+  # Drop postings older than this
+  max_age_days: 30
+
+# --- LLM stages ------------------------------------------------
+
+# Jobs per screening call
+screen_batch_size: 8
+
+# JD truncation for screening
+screen_jd_chars: 1400
+
+# JD truncation for drafting
+draft_jd_chars: 6000
+
+# Minimum match score
+score_threshold: 7.0
+
+# Maximum expensive draft calls per run
+max_per_digest: 5
+
+# --- Paths -----------------------------------------------------
+
+companies_file: companies.yaml
+profile_file: profile.json
+seen_file: seen.json
+digest_file: out/digest.html
+tracker_csv: out/tracker.csv
